@@ -4,12 +4,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Converter {
+    private static int value;
+
     public static void convertRomanToArabic(String[] expression) {
         expression[0] = romanToArabic(expression[0]);
         expression[2] = romanToArabic(expression[2]);
     }// convertRomanToArabic
 
     public static String convertArabicToRoman(int value) {
+        Converter.value = value;
         String[] romanNumerals = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
         int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
         StringBuilder result = new StringBuilder();
