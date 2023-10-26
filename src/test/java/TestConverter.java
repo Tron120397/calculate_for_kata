@@ -13,5 +13,6 @@ public class TestConverter {
     @Test
     public void testConvertArabicToRoman() {
         assertEquals("V", Converter.convertArabicToRoman(5));
+        assertEquals("XXIV", Converter.convertArabicToRoman(24));
     }
 }
