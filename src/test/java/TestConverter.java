@@ -6,8 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestConverter {
     @Test
     public void testConvertRomanToArabic() {
-        assertEquals("2", Converter.romanToArabic("II"));
-        assertEquals("34", Converter.romanToArabic("XXXIV"));
+        assertEquals("2", Converter.convertRomanToArabic("II"));
+        assertEquals("34", Converter.convertRomanToArabic("XXXIV"));
+        assertEquals("9", Converter.convertRomanToArabic("IX"));
+        assertEquals("544", Converter.convertRomanToArabic("DXLIV"));
     }
 
     @Test

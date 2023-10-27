@@ -55,9 +55,8 @@ public class Calculator {
                 throw new NumberFormatException("В риммской системе нет отрицательных чисел");
             }
             return Converter.convertArabicToRoman(result);
-        }
+        }// roman numeral check
 
         return Integer.toString(result);
     }// public String calculate
-
 }// public class Calculator

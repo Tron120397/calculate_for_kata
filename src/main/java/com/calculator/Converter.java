@@ -1,51 +1,46 @@
 package com.calculator;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Arrays;
 
 public class Converter {
+    private static final RomanNumeric[] romanNumerics = RomanNumeric.values();
+
     public static void convertRomanToArabic(String[] expression) {
-        expression[0] = romanToArabic(expression[0]);
-        expression[2] = romanToArabic(expression[2]);
+        expression[0] = convertRomanToArabic(expression[0]);
+        expression[2] = convertRomanToArabic(expression[2]);
     }// convertRomanToArabic
 
     public static String convertArabicToRoman(int value) {
-        String[] romanNumerals = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-        int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
         StringBuilder result = new StringBuilder();
 
-        for (int i = 0; i < values.length; i++) {
-            while (value >= values[i]) {
-                result.append(romanNumerals[i]);
-                value -= values[i];
-            }
-        }
+        for (int i = romanNumerics.length - 1; i >= 0; i--) {
+            while (value >= romanNumerics[i].getArabicInteger()) {
+                result.append(romanNumerics[i]);
+                value -= romanNumerics[i].getArabicInteger();
+            }// while (value >= romanNumerics[i].getArabicInteger())
+        }// for (int i = romanNumerics.length - 1; i >= 0; i--)
 
         return result.toString();
     }// public static String convertArabicToRoman(int value)
 
-    public static String romanToArabic(String romanNumber) {
-        Map<Character, Integer> romanValues = new HashMap<>();
-        romanValues.put('I', 1);
-        romanValues.put('V', 5);
-        romanValues.put('X', 10);
-        romanValues.put('L', 50);
-        romanValues.put('C', 100);
-        romanValues.put('D', 500);
-        romanValues.put('M', 1000);
+    public static String convertRomanToArabic(String romanNumber) {
         int result = 0;
         int prevValue = 0;
 
         for (int i = romanNumber.length() - 1; i >= 0; i--) {
-            char ch = romanNumber.charAt(i);
-            int value = romanValues.get(ch);
+            String stringRomanNum = Character.toString(romanNumber.charAt(i));
+            int value = RomanNumeric.valueOf(stringRomanNum).getArabicInteger();
+
             if (value < prevValue) {
                 result -= value;
-            } else {
+            }
+            else {
                 result += value;
             }
+
             prevValue = value;
-        }
+        }// for (int i = romanNumber.length() - 1; i >= -; i--)
+
         return Integer.toString(result);
     }// private static String romanToArabic(String romanNumber)
 }// public class Converter
