@@ -11,7 +11,7 @@ public class Main {
         catch (Exception exception) {
             System.out.println(exception.getCause() + "\n" + exception.getMessage());
         }// catch (Exception exception)
-    }
+    }// main
 
     public static String calc(String input) throws IndexOutOfBoundsException, IllegalArgumentException, ArithmeticException {
         try {

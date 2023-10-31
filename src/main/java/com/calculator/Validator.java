@@ -6,11 +6,11 @@ public class Validator {
     private String[] expression;
     private boolean isRoman;
 
-    public Validator() {}
+    public Validator() {} //empty constructor, only for tests (
 
     public Validator(String[] expression) {
         this.expression = checkingExpression(expression);
-    }
+    }// constructor for Validator and main check expression
 
     public String[] getExpression() {
         return expression;
@@ -36,7 +36,7 @@ public class Validator {
         checkingForInteger(expression);
 
         return expression;
-    }
+    }// checkingExpression
 
     private boolean checkingRomanOrArabic(String[] expression) throws NumberFormatException {
         boolean isRomanFirst = checkIsRoman(expression[0]);

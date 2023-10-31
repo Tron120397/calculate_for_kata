@@ -8,12 +8,12 @@ public class Calculator {
         this.validator = new Validator(expression);
         this.expression = validator.getExpression();
 
-    }
+    }// constructor Calculator and checking expression with Validator
 
     public void setExpression(String[] expression) {
         validator.setExpression(expression);
         this.expression = expression;
-    }
+    }// setter for expression
 
     public String calculate() throws ArithmeticException, NumberFormatException {
         int first = Integer.parseInt(this.expression[0]);
@@ -26,7 +26,7 @@ public class Calculator {
             case "*" -> first * second;
             case "/" -> first / second;
             default -> throw new ArithmeticException("Не сущесвтующий операнд");
-        };
+        };// main calculation
 
         if (validator.isRoman()) {
             if (result < 0) {

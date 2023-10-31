@@ -1,6 +1,10 @@
 package com.calculator;
 
 public class Converter {
+    /*
+    @romanNumerics arrays of numerical roman numbers
+     */
+
     private static final RomanNumeric[] romanNumerics = RomanNumeric.values();
 
     public static void convertRomanToArabic(String[] expression) {
