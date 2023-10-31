@@ -29,8 +29,8 @@ public class Calculator {
         };// main calculation
 
         if (validator.isRoman()) {
-            if (result < 0) {
-                throw new NumberFormatException("В риммской системе нет отрицательных чисел");
+            if (result <= 0) {
+                throw new NumberFormatException("В риммской системе нет отрицательных чисел и нуля");
             }
             return Converter.convertArabicToRoman(result);
         }// roman numeral check

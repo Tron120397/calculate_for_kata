@@ -22,6 +22,10 @@ public class TestCalculator {
 
         calculator.setExpression(new String[] {"I", "-", "V"});
         exception = assertThrows(NumberFormatException.class, calculator::calculate);
-        assertEquals("В риммской системе нет отрицательных чисел", exception.getMessage());
+        assertEquals("В риммской системе нет отрицательных чисел и нуля", exception.getMessage());
+
+        calculator.setExpression(new String[] {"I", "-", "I"});
+        exception = assertThrows(NumberFormatException.class, calculator::calculate);
+        assertEquals("В риммской системе нет отрицательных чисел и нуля", exception.getMessage());
     }
 }
