@@ -1,7 +1,5 @@
 package com.calculator;
 
-import java.util.Arrays;
-
 public class Converter {
     private static final RomanNumeric[] romanNumerics = RomanNumeric.values();
 
